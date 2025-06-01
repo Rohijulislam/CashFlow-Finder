@@ -11,20 +11,19 @@ jobs:
   lint:
     name: Run SwiftLint
     runs-on: macos-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
+        
       - name: Install SwiftLint
         run: brew install swiftlint
-
+        
       - name: Run SwiftLint and save JSON report
         run: swiftlint --reporter json > swiftlint-result.json
-
+        
       - name: Display lint results
         run: cat swiftlint-result.json
-
+        
       - name: Fail if lint violations exist
         run: |
           count=$(jq length swiftlint-result.json)
@@ -35,26 +34,25 @@ jobs:
             echo "✅ SwiftLint passed"
           fi
         shell: bash
-
+        
       - name: Upload SwiftLint report as artifact
         uses: actions/upload-artifact@v3
         with:
           name: swiftlint-report
           path: swiftlint-result.json
           
-        - name: Create summary from SwiftLint results
-          id: summary
-          run: |
-                echo "SwiftLint Issues:" > summary.txt
-                cat swiftlint-result.json | jq -r '.[] | "\(.file):\(.line) \(.rule_id) - \(.reason)"' >> summary.txt
-                echo "::set-output name=body::$(cat summary.txt | sed 's/%/%25/g; s/\n/%0A/g; s/\r/%0D/g')"
-
-        - name: Post comment on PR with summary
-          uses: peter-evans/create-or-update-comment@v3
-          if: github.event_name == 'pull_request'
-          with:
-            issue-number: ${{ github.event.pull_request.number }}
-            body: ${{ steps.summary.outputs.body }}
-
-
-    
+      - name: Create summary from SwiftLint results
+        id: summary
+        run: |
+          echo "SwiftLint Issues:" > summary.txt
+          cat swiftlint-result.json | jq -r '.[] | "\(.file):\(.line) \(.rule_id) - \(.reason)"' >> summary.txt
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          cat summary.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Post comment on PR with summary
+        uses: peter-evans/create-or-update-comment@v3
+        if: github.event_name == 'pull_request'
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: ${{ steps.summary.outputs.body }}
