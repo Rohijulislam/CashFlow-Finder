@@ -33,8 +33,17 @@
 		B47476BB2DEC2A11008A6FB3 /* CashFlow Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CashFlow Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47476C82DEC2A12008A6FB3 /* CashFlow FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CashFlow FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47476D22DEC2A12008A6FB3 /* CashFlow FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CashFlow FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B47477092DEC40BC008A6FB3 /* CashFlowFinderLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CashFlowFinderLibrary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B47477672DEC6925008A6FB3 /* Exceptions for "LocalPackages" folder in "CashFlow Finder" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CashFlowFinderLibrary,
+			);
+			target = B47476BA2DEC2A11008A6FB3 /* CashFlow Finder */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B47476BD2DEC2A11008A6FB3 /* CashFlow Finder */ = {
@@ -50,6 +59,14 @@
 		B47476D52DEC2A12008A6FB3 /* CashFlow FinderUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "CashFlow FinderUITests";
+			sourceTree = "<group>";
+		};
+		B47477662DEC691E008A6FB3 /* LocalPackages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B47477672DEC6925008A6FB3 /* Exceptions for "LocalPackages" folder in "CashFlow Finder" target */,
+			);
+			path = LocalPackages;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -85,7 +102,7 @@
 		B47476B22DEC2A11008A6FB3 = {
 			isa = PBXGroup;
 			children = (
-				B47477092DEC40BC008A6FB3 /* CashFlowFinderLibrary */,
+				B47477662DEC691E008A6FB3 /* LocalPackages */,
 				B47476BD2DEC2A11008A6FB3 /* CashFlow Finder */,
 				B47476CB2DEC2A12008A6FB3 /* CashFlow FinderTests */,
 				B47476D52DEC2A12008A6FB3 /* CashFlow FinderUITests */,
@@ -120,6 +137,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				B47476BD2DEC2A11008A6FB3 /* CashFlow Finder */,
+				B47477662DEC691E008A6FB3 /* LocalPackages */,
 			);
 			name = "CashFlow Finder";
 			packageProductDependencies = (
