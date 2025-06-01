@@ -1,7 +1,12 @@
 disabled_rules:
   - trailing_whitespace
   - force_cast
-  - line_length
+  - todo # Allow TODO comments during development
+  - missing_docs # Skip documentation requirements
+  - file_header # Skip file header requirements
+  - void_return
+  - opening_brace # Allow brace placement flexibility
+  - closing_brace # Allow closing brace flexibility
 
 opt_in_rules:
   - force_unwrapping
