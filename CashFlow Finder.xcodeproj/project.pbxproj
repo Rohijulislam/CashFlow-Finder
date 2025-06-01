@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B474773B2DEC4A76008A6FB3 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B474773A2DEC4A76008A6FB3 /* AppFeature */; };
+		B474773D2DEC4A76008A6FB3 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = B474773C2DEC4A76008A6FB3 /* Shared */; };
+		B474773F2DEC4A76008A6FB3 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = B474773E2DEC4A76008A6FB3 /* Utils */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B47476C92DEC2A12008A6FB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -53,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B474773F2DEC4A76008A6FB3 /* Utils in Frameworks */,
+				B474773B2DEC4A76008A6FB3 /* AppFeature in Frameworks */,
+				B474773D2DEC4A76008A6FB3 /* Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +123,9 @@
 			);
 			name = "CashFlow Finder";
 			packageProductDependencies = (
+				B474773A2DEC4A76008A6FB3 /* AppFeature */,
+				B474773C2DEC4A76008A6FB3 /* Shared */,
+				B474773E2DEC4A76008A6FB3 /* Utils */,
 			);
 			productName = "CashFlow Finder";
 			productReference = B47476BB2DEC2A11008A6FB3 /* CashFlow Finder.app */;
@@ -197,6 +209,9 @@
 			);
 			mainGroup = B47476B22DEC2A11008A6FB3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B47477392DEC4A76008A6FB3 /* XCLocalSwiftPackageReference "CashFlowFinderLibrary" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B47476BC2DEC2A11008A6FB3 /* Products */;
 			projectDirPath = "";
@@ -562,6 +577,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B47477392DEC4A76008A6FB3 /* XCLocalSwiftPackageReference "CashFlowFinderLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CashFlowFinderLibrary;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B474773A2DEC4A76008A6FB3 /* AppFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppFeature;
+		};
+		B474773C2DEC4A76008A6FB3 /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shared;
+		};
+		B474773E2DEC4A76008A6FB3 /* Utils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Utils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B47476B32DEC2A11008A6FB3 /* Project object */;
 }
