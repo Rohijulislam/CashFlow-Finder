@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Install SwiftLint
         run: brew install swiftlint
@@ -28,7 +28,7 @@ jobs:
         run: |
           count=$(jq length swiftlint-result.json)
           if [ "$count" -gt 0 ]; then
-            echo "❌ SwiftLint found $count violations"
+            echo "❌ SwiftLint found $count violations"  
             exit 1
           else
             echo "✅ SwiftLint passed"
@@ -36,7 +36,7 @@ jobs:
         shell: bash
         
       - name: Upload SwiftLint report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: swiftlint-report
           path: swiftlint-result.json
@@ -51,7 +51,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
           
       - name: Post comment on PR with summary
-        uses: peter-evans/create-or-update-comment@v3
+        uses: peter-evans/create-or-update-comment@v4
         if: github.event_name == 'pull_request'
         with:
           issue-number: ${{ github.event.pull_request.number }}
