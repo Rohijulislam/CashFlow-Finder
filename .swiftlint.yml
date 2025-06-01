@@ -1,0 +1,40 @@
+disabled_rules:
+  - trailing_whitespace
+  - force_cast
+  - line_length
+
+opt_in_rules:
+  - force_unwrapping
+  - empty_count
+
+included:
+  - Sources
+  - Tests
+  - CashFlow Finder
+
+excluded:
+  - Pods/
+  - Carthage/
+  - build/
+  - DerivedData
+  - fastlane
+  - .github
+  - .swiftlint.yml
+
+
+line_length:
+  warning: 120
+  error: 150
+  ignores_comments: true
+  ignores_urls: true
+  
+# Custom rules
+custom_rules:
+  swiftui_state_private:
+    name: "SwiftUI @State should be private"
+    regex: '^[ \t]*@State[ \t]+(var|let)'
+    message: "@State properties should be private"
+    severity: warning
+
+reporter: xcode
+
