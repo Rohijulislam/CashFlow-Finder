@@ -210,7 +210,6 @@
 			mainGroup = B47476B22DEC2A11008A6FB3;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				B47477392DEC4A76008A6FB3 /* XCLocalSwiftPackageReference "CashFlowFinderLibrary" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B47476BC2DEC2A11008A6FB3 /* Products */;
@@ -577,13 +576,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		B47477392DEC4A76008A6FB3 /* XCLocalSwiftPackageReference "CashFlowFinderLibrary" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = CashFlowFinderLibrary;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		B474773A2DEC4A76008A6FB3 /* AppFeature */ = {
