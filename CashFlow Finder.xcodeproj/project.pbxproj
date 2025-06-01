@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B474773B2DEC4A76008A6FB3 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B474773A2DEC4A76008A6FB3 /* AppFeature */; };
+		B474773D2DEC4A76008A6FB3 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = B474773C2DEC4A76008A6FB3 /* Shared */; };
+		B474773F2DEC4A76008A6FB3 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = B474773E2DEC4A76008A6FB3 /* Utils */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B47476C92DEC2A12008A6FB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,7 @@
 		B47476BB2DEC2A11008A6FB3 /* CashFlow Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CashFlow Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47476C82DEC2A12008A6FB3 /* CashFlow FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CashFlow FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47476D22DEC2A12008A6FB3 /* CashFlow FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CashFlow FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47477092DEC40BC008A6FB3 /* CashFlowFinderLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CashFlowFinderLibrary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B474773F2DEC4A76008A6FB3 /* Utils in Frameworks */,
+				B474773B2DEC4A76008A6FB3 /* AppFeature in Frameworks */,
+				B474773D2DEC4A76008A6FB3 /* Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +85,7 @@
 		B47476B22DEC2A11008A6FB3 = {
 			isa = PBXGroup;
 			children = (
+				B47477092DEC40BC008A6FB3 /* CashFlowFinderLibrary */,
 				B47476BD2DEC2A11008A6FB3 /* CashFlow Finder */,
 				B47476CB2DEC2A12008A6FB3 /* CashFlow FinderTests */,
 				B47476D52DEC2A12008A6FB3 /* CashFlow FinderUITests */,
@@ -112,6 +123,9 @@
 			);
 			name = "CashFlow Finder";
 			packageProductDependencies = (
+				B474773A2DEC4A76008A6FB3 /* AppFeature */,
+				B474773C2DEC4A76008A6FB3 /* Shared */,
+				B474773E2DEC4A76008A6FB3 /* Utils */,
 			);
 			productName = "CashFlow Finder";
 			productReference = B47476BB2DEC2A11008A6FB3 /* CashFlow Finder.app */;
@@ -195,6 +209,9 @@
 			);
 			mainGroup = B47476B22DEC2A11008A6FB3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B47477392DEC4A76008A6FB3 /* XCLocalSwiftPackageReference "CashFlowFinderLibrary" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B47476BC2DEC2A11008A6FB3 /* Products */;
 			projectDirPath = "";
@@ -405,6 +422,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +451,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +577,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B47477392DEC4A76008A6FB3 /* XCLocalSwiftPackageReference "CashFlowFinderLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CashFlowFinderLibrary;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B474773A2DEC4A76008A6FB3 /* AppFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppFeature;
+		};
+		B474773C2DEC4A76008A6FB3 /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shared;
+		};
+		B474773E2DEC4A76008A6FB3 /* Utils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Utils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B47476B32DEC2A11008A6FB3 /* Project object */;
 }
