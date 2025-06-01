@@ -19,21 +19,31 @@ jobs:
         run: brew install swiftlint
         
       - name: Run SwiftLint and save JSON report
-        run: swiftlint --reporter json > swiftlint-result.json
+        run: |
+          set +e
+          swiftlint --reporter json > swiftlint-result.json
+          swiftlint_exit_code=$?
+          echo "SwiftLint exit code: $swiftlint_exit_code"
+          set -e
         
       - name: Display lint results
         run: cat swiftlint-result.json
         
-      - name: Fail if lint violations exist
+      - name: Check and fail if lint violations exist
         run: |
+          if [ ! -f swiftlint-result.json ]; then
+            echo "❌ SwiftLint report not generated"
+            exit 1
+          fi
+          
           count=$(jq length swiftlint-result.json)
           if [ "$count" -gt 0 ]; then
-            echo "❌ SwiftLint found $count violations"  
+            echo "❌ SwiftLint found $count violations"
+            jq -r '.[] | "  \(.severity): \(.file):\(.line):\(.character) \(.rule_id) - \(.reason)"' swiftlint-result.json
             exit 1
           else
-            echo "✅ SwiftLint passed"
+            echo "✅ SwiftLint passed with no violations"
           fi
-        shell: bash
         
       - name: Upload SwiftLint report as artifact
         uses: actions/upload-artifact@v4
