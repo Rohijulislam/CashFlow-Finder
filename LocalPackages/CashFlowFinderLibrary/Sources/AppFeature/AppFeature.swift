@@ -7,38 +7,52 @@ import FilePicker
 import Utils
 
 public struct RootView: View {
-    @State private var showPicker: Bool = false
-    private let filePicker: FilePicker
+    @StateObject private var viewModel = RootViewModel<String>()
     
     public init() {
         // Initialization code if needed
-        
-        filePicker = FilePicker(allowedTypes: [.pdf])
     }
     
     public var body: some View {
         NavigationStack {
-            EmptyStateView(showPicker: $showPicker)
+            content
                 .navigationTitle("Bank Statements")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
-                            showPicker.toggle()
+                            viewModel.showPicker.toggle()
                         } label: {
                             Label("Upload PDF", systemImage: "plus.doc")
                         }
                     }
                 }
-                .sheet(isPresented: $showPicker) {
-                    filePicker.makePickerView { urls in
-                        if let url = urls.first {
-                            print("Selected file: \(url)")
-                            print("text from file: \(PDFTextExtractor().extract(from: url))")
-                        }
+                .sheet(isPresented: $viewModel.showPicker) {
+                    viewModel.filePicker.makePickerView { urls in
+                        viewModel.processSelectedFiles(urls)
                     }
                 }
         }
         
     }
+    
+    
+    @ViewBuilder
+    private var content: some View {
+        switch viewModel.viewState {
+        case .empty:
+            EmptyStateView(showPicker: $viewModel.showPicker)
+        case .loading:
+            ProgressView("Processing...")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        case .success(let result):
+            Text(result)
+        case .error(let message):
+            ErrorView(message) {
+                viewModel.viewState = .empty
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+    
 }
