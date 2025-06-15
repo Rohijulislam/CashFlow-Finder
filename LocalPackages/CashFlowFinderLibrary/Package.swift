@@ -27,6 +27,7 @@ let package = Package(
             name: "Utils"),
         .target(
             name: "FilePicker"),
-        .target(name: "BankAccount")
+        .target(name: "BankAccount",
+               dependencies: ["Shared"])
     ]
 )
