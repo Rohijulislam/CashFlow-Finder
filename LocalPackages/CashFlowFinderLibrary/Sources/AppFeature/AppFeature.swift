@@ -5,6 +5,7 @@ import SwiftUI
 import Shared
 import FilePicker
 import Utils
+import BankAccount
 
 public struct RootView: View {
     @StateObject private var viewModel = RootViewModel<String>()
@@ -46,7 +47,7 @@ public struct RootView: View {
             ProgressView("Processing...")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         case .success(let result):
-            Text(result)
+            BankAccountView(accountData: result)
         case .error(let message):
             ErrorView(message) {
                 viewModel.viewState = .empty

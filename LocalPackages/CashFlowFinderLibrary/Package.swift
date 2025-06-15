@@ -13,18 +13,20 @@ let package = Package(
         .library(name: "Shared", targets: ["Shared"]),
         .library(name: "Utils", targets: ["Utils"]),
         .library(name: "FilePicker", targets: ["FilePicker"]),
+        .library(name: "BankAccount", targets: ["BankAccount"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "AppFeature",
-            dependencies: ["Shared", "Utils", "FilePicker"]),
+            dependencies: ["Shared", "Utils", "FilePicker", "BankAccount"]),
         .target(
             name: "Shared"),
         .target(
             name: "Utils"),
         .target(
             name: "FilePicker"),
+        .target(name: "BankAccount")
     ]
 )
