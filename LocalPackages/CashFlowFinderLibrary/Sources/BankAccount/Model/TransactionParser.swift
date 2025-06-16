@@ -9,12 +9,63 @@ import Foundation
 
 struct TransactionParser {
     
+    // MARK: - Main parsing
+    
     func parse(_ raw: String) -> [BankTransaction] {
         let lines = preprocessLines(from: raw)
         return parseTransactions(from: lines)
     }
     
+    func parseBankAccountInfo(from text: String) -> BankAccountInfo {
+        guard let currencyRange = text.range(of: "Currency") else {
+            return BankAccountInfo(
+                customerName: "JOHN DOE",
+                printDate: nil, periodFrom: nil, periodTo: nil,
+                accountNumber: "XXXXXXXXXX", customerID: nil, productName: nil,
+                currency: "BDT"
+            )
+        }
+        
+        let customerName: String
+        #if DEBUG
+        customerName = "MD. ROHEJUL ISLAM"
+        #else
+        customerName = "JOHN DOE"
+        #endif
+
+        let textUpToCurrency = String(text[..<currencyRange.upperBound])
+        // Other fields via regex
+        let printDate = extractFirstMatch(pattern: #"Print Date\s*:\s*([0-9-]+)"#, in: textUpToCurrency)
+        let periodFrom = extractFirstMatch(pattern: #"Period From\s*:\s*([0-9-]+)"#, in: textUpToCurrency)
+        let periodTo = extractFirstMatch(pattern: #"To\s*([0-9-]+)"#, in: textUpToCurrency)
+        let accountNumber = extractFirstMatch(pattern: #"Account Number\s*:\s*([0-9X]+)"#, in: textUpToCurrency) ?? "XXXXXXXXXX"
+        let customerID = extractFirstMatch(pattern: #"Customer ID\s*:\s*([A-Z0-9X]+)"#, in: textUpToCurrency)
+        let productName = extractFirstMatch(pattern: #"Product Name\s*:\s*(.+)"#, in: textUpToCurrency)
+
+        return BankAccountInfo(
+            customerName: customerName,
+            printDate: printDate,
+            periodFrom: periodFrom,
+            periodTo: periodTo,
+            accountNumber: accountNumber,
+            customerID: customerID,
+            productName: productName,
+            currency: "BDT"
+        )
+    }
+
+    
     // MARK: - Helpers
+    
+    private func extractFirstMatch(pattern: String, in text: String) -> String? {
+        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+        if let match = regex?.firstMatch(in: text, options: [], range: range),
+           let range = Range(match.range(at: 1), in: text) {
+            return String(text[range]).trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        return nil
+    }
     
     private func preprocessLines(from raw: String) -> [String] {
         let datePattern = #"^\d{2}-\d{2}-\d{4}"#
