@@ -14,6 +14,7 @@ let package = Package(
         .library(name: "Utils", targets: ["Utils"]),
         .library(name: "FilePicker", targets: ["FilePicker"]),
         .library(name: "BankAccount", targets: ["BankAccount"]),
+        .library(name: "BankCard", targets: ["BankCard"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -28,6 +29,7 @@ let package = Package(
         .target(
             name: "FilePicker"),
         .target(name: "BankAccount",
-               dependencies: ["Shared"])
+               dependencies: ["BankCard","Shared"]),
+        .target(name: "BankCard"),
     ]
 )

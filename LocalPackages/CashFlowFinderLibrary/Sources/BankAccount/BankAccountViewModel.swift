@@ -7,6 +7,7 @@
 
 import Foundation
 import Shared
+import BankCard
 
 @MainActor
 final class BankAccountViewModel: ObservableObject {

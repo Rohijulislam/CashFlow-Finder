@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import BankCard
 
 struct TransactionParser {
     

@@ -5,6 +5,7 @@
 //  Created by Md. Rohejul Islam on 6/15/25.
 //
 import SwiftUI
+import BankCard
 
 public struct BankAccountView: View {
     private let accountData: String
@@ -31,7 +32,12 @@ public struct BankAccountView: View {
         case .empty:
             emptyView
         case .success(let transactions):
-            transactionsList(transactions)
+            VStack(spacing: 0) {
+                if let accountInfo = viewModel.accountInfo {
+                    BankCardView(account: accountInfo)
+                }
+                transactionsList(transactions)
+            }
         }
     }
 
