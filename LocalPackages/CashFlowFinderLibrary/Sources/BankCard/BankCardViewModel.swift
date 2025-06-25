@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 final class BankCardViewModel: ObservableObject {
@@ -14,5 +15,21 @@ final class BankCardViewModel: ObservableObject {
     
     init(account: BankAccountInfo) {
         self.account = account
+    }
+    
+    var balanceTransition: AnyTransition {
+        .asymmetric(
+            insertion: .opacity.combined(with: .scale(scale: 1.1)),
+            removal: .opacity.combined(with: .scale(scale: 0.9))
+        )
+    }
+    
+    func toggleBalanceVisibility() {
+        withAnimation(.spring(
+            response: 0.3,
+            dampingFraction: 0.7
+        )) {
+            isBalanceVisible.toggle()
+        }
     }
 }

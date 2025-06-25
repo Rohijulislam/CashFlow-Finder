@@ -69,7 +69,7 @@ public struct BankCardView: View {
     
     var balanceVisibilityToggle: some View {
         Button(action: {
-            viewModel.isBalanceVisible.toggle()
+            viewModel.toggleBalanceVisibility()
         }) {
             Image(systemName: viewModel.isBalanceVisible ? "eye.fill" : "eye.slash.fill")
                 .font(.system(size: 18, weight: .medium))
@@ -106,15 +106,17 @@ public struct BankCardView: View {
             Text("Balance: 100")
                 .font(.system(size: 32, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
+                .transition(viewModel.balanceTransition)
         } else {
             Text("••••••")
                 .font(.system(size: 32, weight: .bold, design: .rounded))
                 .foregroundColor(.white.opacity(0.8))
+                .transition(viewModel.balanceTransition)
         }
     }
     
     var currencyIndicator: some View {
-        Text("BDT")
+        Text(viewModel.account.currency)
             .font(.system(size: 16, weight: .medium))
             .foregroundColor(.white.opacity(0.7))
             .offset(y: -8)
