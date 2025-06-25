@@ -30,11 +30,11 @@ public struct BankCardView: View {
     
     private var cardContent: some View {
         VStack(alignment: .leading, spacing: 0) {
-           headerRow
-           Spacer()
-           balanceSection
-//            Spacer()
-//            accountInfoSection
+            headerRow
+            Spacer()
+            balanceSection
+            Spacer()
+            accountInfoSection
         }
     }
     
@@ -120,6 +120,42 @@ public struct BankCardView: View {
             .font(.system(size: 16, weight: .medium))
             .foregroundColor(.white.opacity(0.7))
             .offset(y: -8)
+    }
+    
+    var accountInfoSection: some View {
+        HStack {
+            cardNumberInfo
+            Spacer()
+            cardholderInfo
+        }
+        .padding(.horizontal, 24)
+        .padding(.bottom, 12)
+    }
+    
+    var cardNumberInfo: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("CARD NUMBER")
+                .font(.system(size: 10, weight: .medium))
+                .foregroundColor(.white.opacity(0.6))
+                .tracking(0.5)
+            
+            Text(viewModel.account.accountNumber)
+                .font(.system(size: 16, weight: .semibold, design: .monospaced))
+                .foregroundColor(.white.opacity(0.9))
+        }
+    }
+    
+    var cardholderInfo: some View {
+        VStack(alignment: .trailing, spacing: 4) {
+            Text("CARDHOLDER")
+                .font(.system(size: 10, weight: .medium))
+                .foregroundColor(.white.opacity(0.6))
+                .tracking(0.5)
+            
+            Text(viewModel.account.customerName)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(.white.opacity(0.9))
+        }
     }
     
 }
