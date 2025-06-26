@@ -14,7 +14,9 @@ public struct PDFTextExtractor {
     
     public func extract(from url: URL) -> Result<String, Error> {
         guard let pdf = PDFDocument(url: url) else {
-            return .failure(NSError(domain: "PDFExtractionError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to open the document"]))
+            return .failure(NSError(domain: "PDFExtractionError",
+                                    code: 0,
+                                    userInfo: [NSLocalizedDescriptionKey: "Failed to open the document"]))
         }
         
         let text = (0..<pdf.pageCount)

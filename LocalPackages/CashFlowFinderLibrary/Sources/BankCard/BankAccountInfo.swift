@@ -17,7 +17,8 @@ public struct BankAccountInfo {
     let productName: String?
     let currency: String
     
-    public init(customerName: String, printDate: String?, periodFrom: String?, periodTo: String?, accountNumber: String, customerID: String?, productName: String?, currency: String) {
+    public init(customerName: String, printDate: String?, periodFrom: String?, periodTo: String?,
+                accountNumber: String, customerID: String?, productName: String?, currency: String) {
         self.customerName = customerName
         self.printDate = printDate
         self.periodFrom = periodFrom

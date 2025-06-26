@@ -8,7 +8,7 @@
 import XCTest
 @testable import CashFlow_Finder
 
-final class CashFlow_FinderTests: XCTestCase {
+final class CashFlowFinderTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

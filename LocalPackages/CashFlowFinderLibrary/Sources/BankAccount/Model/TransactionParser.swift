@@ -55,7 +55,6 @@ struct TransactionParser {
         )
     }
 
-    
     // MARK: - Helpers
     
     private func extractFirstMatch(pattern: String, in text: String) -> String? {

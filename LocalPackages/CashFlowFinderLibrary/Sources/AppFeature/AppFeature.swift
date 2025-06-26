@@ -37,7 +37,6 @@ public struct RootView: View {
         
     }
     
-    
     @ViewBuilder
     private var content: some View {
         switch viewModel.viewState {

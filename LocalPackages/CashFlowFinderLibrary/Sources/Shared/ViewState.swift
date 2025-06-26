@@ -14,4 +14,3 @@ public enum ViewState<T> {
     case success(T)
     case error(String)
 }
-

@@ -22,10 +22,10 @@ struct BankTransaction: Identifiable {
     var balanceText: String { BankTransaction.formatter.string(from: balance as NSNumber) ?? "" }
     
     static let formatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.numberStyle = .currency
-        nf.maximumFractionDigits = 2
-        return nf
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.maximumFractionDigits = 2
+        return numberFormatter
     }()
     
     var amount: Double {
@@ -47,10 +47,10 @@ extension NumberFormatter {
 
 extension DateFormatter {
     static let transactionDate: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "dd-MM-yyyy"
-        df.locale = Locale(identifier: "en_US_POSIX")
-        return df
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter
     }()
     
     static let shortDate: DateFormatter = {

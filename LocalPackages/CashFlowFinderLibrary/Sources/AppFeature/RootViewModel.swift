@@ -10,7 +10,6 @@ import Shared
 import Utils
 import FilePicker
 
-
 @MainActor
 final class RootViewModel<T>: ObservableObject {
     @Published var viewState: ViewState<T> = .empty
@@ -47,4 +46,3 @@ final class RootViewModel<T>: ObservableObject {
         }
     }
 }
-

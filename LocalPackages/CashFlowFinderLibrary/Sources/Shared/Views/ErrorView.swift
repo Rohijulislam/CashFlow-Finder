@@ -32,7 +32,6 @@ public struct ErrorView: View {
     }
 }
 
-
 #Preview {
     ErrorView() {
         

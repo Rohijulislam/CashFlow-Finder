@@ -66,7 +66,6 @@ public struct BankAccountView: View {
         .transition(.opacity.combined(with: .scale))
     }
 
-
     private func errorView(message: String) -> some View {
         VStack {
             Image(systemName: "exclamationmark.triangle")
