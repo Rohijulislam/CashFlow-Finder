@@ -16,6 +16,9 @@ included:
   - Sources
   - Tests
   - CashFlow Finder
+  - LocalPackages/CashFlowFinderLibrary/Sources
+  - CashFlow FinderTests
+  - CashFlow FinderUITests
 
 excluded:
   - Pods/
