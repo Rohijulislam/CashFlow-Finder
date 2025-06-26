@@ -33,7 +33,7 @@ public struct ErrorView: View {
 }
 
 #Preview {
-    ErrorView() {
-        
+    ErrorView {
+        // No retry action for preview
     }
 }
